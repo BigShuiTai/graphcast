@@ -28,8 +28,8 @@ def main(steps):
     habvg_10 = xr.open_mfdataset(['gfs.pgrb2.0p25.p006', 'gfs.pgrb2.0p25.f000'], engine='cfgrib', backend_kwargs={'indexpath': '', 'filter_by_keys': {'typeOfLevel': 'heightAboveGround', 'level': 10}}, combine='nested', concat_dim="time", parallel=False)
     msl = xr.open_mfdataset(['gfs.pgrb2.0p25.p006', 'gfs.pgrb2.0p25.f000'], engine='cfgrib', backend_kwargs={'indexpath': '', 'filter_by_keys': {'typeOfLevel': 'meanSea'}}, combine='nested', concat_dim="time", parallel=False)
     upper = xr.open_mfdataset(['gfs.pgrb2.0p25.p006', 'gfs.pgrb2.0p25.f000'], engine='cfgrib', backend_kwargs={'indexpath': '', 'filter_by_keys': {'typeOfLevel': 'isobaricInhPa'}}, combine='nested', concat_dim="time", parallel=False)
-    gh_surface = xr.open_dataset('geopotential_at_surface.nc') # geopotential_at_surface
-    lsmsk = xr.open_dataset('land_sea_mask.nc') # land_sea_mask
+    gh_surface = xr.open_dataset('geopotential_at_surface.nc') # from ERA5 Reanalysis data
+    lsmsk = xr.open_dataset('land_sea_mask.nc') # from ERA5 Reanalysis data
     
     input_lats = np.linspace(-90, 90, 721)
     input_lons = np.linspace(0, 359.75, 1440)
