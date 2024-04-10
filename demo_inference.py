@@ -147,20 +147,20 @@ if __name__ == '__main__':
     for i, pred in enumerate(predictions, start=1):
         fcst_hour = i * 6
         print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} [I] Running for GraphCast [+{fcst_hour}h]...")
-        pred.attrs["10m_u_component_of_wind_units"] = "m/s"
-        pred.attrs["10m_v_component_of_wind_units"] = "m/s"
-        pred.attrs["2m_temperature_units"] = "K"
-        pred.attrs["geopotential_units"] = "m2/s2"
-        pred.attrs["mean_sea_level_pressure_units"] = "Pa"
-        pred.attrs["specific_humidity_units"] = "kg/kg"
-        pred.attrs["temperature_units"] = "K"
-        pred.attrs["total_precipitation_6hr_units"] = "m"
-        pred.attrs["u_component_of_wind_units"] = "m/s"
-        pred.attrs["v_component_of_wind_units"] = "m/s"
-        pred.attrs["vertical_velocity_units"] = "Pa/s"
-        pred.attrs['description'] = 'GraphCast Model Inference Data'
-        pred.attrs['reference'] = 'https://github.com/google-deepmind/graphcast'
-        pred.attrs['code_author'] = 'BigShuiTai'
-        pred.attrs['runtime'] = runtime
-        pred.attrs['step'] = fcst_hour
+        pred["10m_u_component_of_wind"].attrs["units"] = "m/s"
+        pred["10m_v_component_of_wind"].attrs["units"] = "m/s"
+        pred["2m_temperature"].attrs["units"] = "K"
+        pred["geopotential"].attrs["units"] = "m2/s2"
+        pred["mean_sea_level_pressure"].attrs["units"] = "Pa"
+        pred["specific_humidity"].attrs["units"] = "kg/kg"
+        pred["temperature"].attrs["units"] = "K"
+        pred["total_precipitation_6hr"].attrs["units"] = "m"
+        pred["u_component_of_wind"].attrs["units"] = "m/s"
+        pred["v_component_of_wind"].attrs["units"] = "m/s"
+        pred["vertical_velocity"].attrs["units"] = "Pa/s"
+        pred['description'] = 'GraphCast Model Inference Data'
+        pred['reference'] = 'https://github.com/google-deepmind/graphcast'
+        pred['code_author'] = 'BigShuiTai'
+        pred['runtime'] = runtime
+        pred['step'] = fcst_hour
         pred.to_netcdf(f'{output_dir}/graphcast_inference_{"%03d" % fcst_hour}.nc')
