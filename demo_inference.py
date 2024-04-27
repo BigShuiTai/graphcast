@@ -143,6 +143,7 @@ def main(input_file, eval_steps):
 
 if __name__ == '__main__':
     output_dir = 'output'
+    os.makedirs(output_dir, exist_ok=True)
     predictions = main(input_file="input.nc", eval_steps='auto')
     for i, pred in enumerate(predictions, start=1):
         fcst_hour = i * 6
