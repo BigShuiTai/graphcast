@@ -1,3 +1,22 @@
+# How to run GraphCast on AMD GPUs?
+
+```bash
+pip install ./graphcast-0.1.1.zip
+pip uninstall jax jaxlib
+pip install jax[rocm]==0.5.0
+
+export PATH=/opt/rocm/bin:$PATH
+export LLVM_PATH=/opt/rocm/llvm
+# for Radeon Instinct MI50 GPU
+export HSA_OVERRIDE_GFX_VERSION=9.0.6
+export PYTORCH_ROCM_ARCH="gfx906"
+# set the AMD GPU you want to call
+export HIP_VISIBLE_DEVICES=0
+
+python your_inference_code.py
+```
+You can refer the code I wrote (`demo_inference_rocm.py`) to call jax & graphcast libraries.
+
 # GraphCast: Learning skillful medium-range global weather forecasting
 
 This package contains example code to run and train [GraphCast](https://arxiv.org/abs/2212.12794).
