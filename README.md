@@ -1,7 +1,7 @@
 # How to run GraphCast on AMD GPUs?
 
 ```bash
-pip install ./graphcast-0.1.1.zip
+pip install https://github.com/google-deepmind/graphcast/archive/refs/tags/v0.1.1.zip
 pip uninstall jax jaxlib
 pip install jax[rocm]==0.5.0
 
