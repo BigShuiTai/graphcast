@@ -7,7 +7,7 @@ pip install jax[rocm]==0.5.0
 
 export PATH=/opt/rocm/bin:$PATH
 export LLVM_PATH=/opt/rocm/llvm
-# for Radeon Instinct MI50 GPU
+# for Radeon Instinct MI50 GPU **ONLY**
 # NOTE: If you are running on another AMD GPUs,
 #       please change these value below
 export HSA_OVERRIDE_GFX_VERSION=9.0.6
